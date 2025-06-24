@@ -8,7 +8,7 @@ It is built using HTML, CSS, and JavaScript — no dependencies required.
 - The JavaScript captures form submission.
 - It prevents default behavior and processes the input text.
 - Whitespace is removed using the RegEx
-- Results are displayed dynamically styled.
+- Results are displayed  and styled.
 ---
 ### Screenshot
 ![output](output.png)
