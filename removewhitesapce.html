@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Whitespace</title>
+    <style>
+        body {
+            background-color: rgb(182, 219, 231);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px 28px 30px 28px;
+        }
+        h3 {
+            text-align: center;
+            color: #d15353;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-decoration: underline;
+        }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        legend {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 400px;
+            height: 80px;
+            border: 1.5px solid #5d84c8;
+            border-radius: 6px;
+            padding: 10px;
+            background:rgb(239, 238, 238);
+            margin-bottom: 18px;
+            transition: border 0.3s;
+        }
+        textarea:focus {
+            border: 1.5px solid black;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(42, 42, 43, 0.3);
+  }
+        button {
+            width: 100%;
+            background: linear-gradient(90deg, #f7b267 0%, #f4845f 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #f4845f 0%, #f7b267 100%);
+            transform: scale(0.96);
+        }
+        .result-label {
+            font-weight: bold;
+            margin-top: 18px;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+        .result-box {
+            
+            border: 1px solid #a7a5a5;
+            border-radius: 6px;
+            padding: 10px;
+            height: 22px;
+            font-family: 'Consolas', monospace;
+            color: rgb(194, 66, 66);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Remove Whitespace</h3>
+        <form id="Whitespaceform" autocomplete="off">
+            <fieldset>
+                <legend>Enter text here:</legend>
+                <textarea id="inputText" placeholder="Enter text with whitespaces..."></textarea>
+                <button type="submit">Remove</button>
+            </fieldset>
+        </form>
+        <div class="result-label">Input:</div>
+        <div id="input" class="result-box"></div>
+        <div class="result-label">Output:</div>
+        <div id="output" class="result-box"></div>
+    </div>
+    <script>
+        document.getElementById("Whitespaceform").addEventListener("submit", removeWhitespace);
+        function removeWhitespace(event) {
+            event.preventDefault();
+            const text = document.getElementById("inputText").value;
+            if (text.trim() === "") {
+                alert("Please enter some text.");
+                return;
+            }
+            const result = text.replace(/\s+/g, '');
+            document.getElementById("input").innerText = text;
+            document.getElementById("output").innerText = result;
+        }
+    </script>
